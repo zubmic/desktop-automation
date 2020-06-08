@@ -1,0 +1,99 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Installing Package From External .deb Files
+      apt:
+        deb: "{{ link }}"
+      with_items: "{{ internet_repo }}"
+      become: yes
+
+    - name: Installing XFCE
+      apt:
+        name: xfce4
+        state: latest
+        install_recommends: yes
+      become: yes
+
+    - name: Installing XFCE Extensions
+      apt:
+        name: xfce4-goodies
+        state: latest
+        install_recommends: yes
+      become: yes
+
+    - name:  Installing Thunderbird
+      apt:
+        name: thunderbird
+        state: latest
+      become: yes
+
+    - name: Installing KeePass2
+      apt:
+        name: keepass2
+        state: latest
+      become: yes
+
+    - name: Installing Gimp
+      apt:
+        name: gimp
+        state: latest
+      become: yes
+
+    - name: Installing Vim
+      apt:
+        name: vim
+        state: latest
+      become: yes
+
+    - name: Installing Pidgin
+      apt:
+        name: pidgin
+        state: latest
+      become: yes
+
+    - name: Installing Calibre
+      apt:
+        name: calibre
+        state: latest
+      become: yes
+
+    - name: Installing LibreOffice
+      apt:
+        name: libreoffice
+        state: latest
+      become: yes
+
+    - name: Installing TeXworks
+      apt:
+        name: texworks
+        state: latest
+      become: yes
+
+    - name: Installing Midnight Commander
+      apt:
+        name: mc
+        state: latest
+      become: yes
+
+    - name: Installing Pomodoro Clock
+      apt:
+        name: gnome-shell-pomodoro
+        state: latest
+        install_recommends: yes
+      become: yes
+
+    - name: Installing Audacious
+      apt:
+        name: audacious
+        state: latest
+      become: yes
+
+    - name: Installing Visual Studio Code
+      apt:
+        deb: https://go.microsoft.com/fwlink/?LinkID=760868
+      become: yes
+
+    - name: Installing Virtualbox
+      apt:
+        deb: https://download.virtualbox.org/virtualbox/6.1.10/virtualbox-6.1_6.1.10-138449~Debian~buster_amd64.deb
+      become: yes
