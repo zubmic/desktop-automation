@@ -1,12 +1,6 @@
 ---
 - hosts: localhost
   tasks:
-    - name: Installing Package From External .deb Files
-      apt:
-        deb: "{{ link }}"
-      with_items: "{{ internet_repo }}"
-      become: yes
-
     - name: Installing XFCE
       apt:
         name: xfce4
