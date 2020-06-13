@@ -1,0 +1,163 @@
+{
+  "quick_start_guide_added": true, 
+  "action-layout-toolbar": [
+    "Add Books", 
+    "Edit Metadata", 
+    "Tweak ePub", 
+    null, 
+    "Convert Books", 
+    "View", 
+    null, 
+    "Remove Books", 
+    "Choose Library", 
+    "Save To Disk", 
+    "Preferences"
+  ], 
+  "show_emblems": false, 
+  "library_usage_stats": {
+    "/home/zubmic/Calibre Library": 7
+  }, 
+  "book_details_splitter_horizontal_state": [
+    false, 
+    200
+  ], 
+  "book_list_pin_splitter_state": {
+    "__class__": "bytearray", 
+    "__value__": "AAAA/wAAAAEAAAACAAABAAAAAEYA/////wEAAAABAA=="
+  }, 
+  "grid view visible": false, 
+  "cover_grid_color": [
+    80, 
+    80, 
+    80
+  ], 
+  "toolbar_text": "auto", 
+  "book_details_splitter_vertical_state": [
+    false, 
+    120
+  ], 
+  "custom_colors_for_color_dialog": [
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ]
+  ], 
+  "tag browser search box visible": false, 
+  "default_author_link": null, 
+  "cover_browser_splitter_horizontal_state": [
+    false, 
+    550
+  ], 
+  "toolbar_icon_size": "small", 
+  "cover_grid_texture": null, 
+  "search bar visible": true, 
+  "preferences dialog geometry": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywACAAAAAAAEAAAAHwAAAx8AAAItAAAABwAAADwAAAMcAAACKgAAAAAAAAAAAyA="
+  }, 
+  "quickview visible": false, 
+  "cover_browser_splitter_vertical_state": [
+    false, 
+    300
+  ], 
+  "tag_browser_splitter_horizontal_state": [
+    true, 
+    200
+  ], 
+  "choose-icon-theme-dialog-geometry": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywACAAAAAAAAAAAAHwAAA4kAAAH7AAAAAwAAADwAAAOGAAAB+AAAAAAAAAAAAyA="
+  }
+}

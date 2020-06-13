@@ -1,19 +1,12 @@
 ---
 - hosts: localhost
   tasks:
-    - name: Installing XFCE
-      apt:
-        name: xfce4
-        state: latest
-        install_recommends: yes
-      become: yes
-
-    - name: Installing XFCE Extensions
-      apt:
-        name: xfce4-goodies
-        state: latest
-        install_recommends: yes
-      become: yes
+    - name: Configure XFCE
+      copy:
+        src: ./files/.xfce
+        dest: /home/zubmic/.xfce
+        owner: zubmic
+        mode: 751
 
     - name:  Installing Thunderbird
       apt:
@@ -50,6 +43,13 @@
         name: calibre
         state: latest
       become: yes
+
+    - name: Configure Calibre
+      copy:
+        src: ./files/.calibre
+        dest: /home/zubmic/.calibre
+        owner: zubmic
+        mode: 751
 
     - name: Installing LibreOffice
       apt:
