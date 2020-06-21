@@ -1,10 +1,24 @@
 ---
 - hosts: localhost
   tasks:
+    - name: Configure XDG
+      copy:
+        src: ./files/.xfce/xdg
+        dest: /home/zubmic/.xfce/
+        owner: zubmic
+        mode: 751
+
     - name: Configure XFCE
       copy:
-        src: ./files/.xfce
-        dest: /home/zubmic
+        src: ./files/.xfce/xfce4
+        dest: /home/zubmic/.xfce/
+        owner: zubmic
+        mode: 751
+
+    - name: Configure Thunar
+      copy:
+        src: ./files/.xfce/Thunar
+        dest: /home/zubmic/.xfce/
         owner: zubmic
         mode: 751
 
