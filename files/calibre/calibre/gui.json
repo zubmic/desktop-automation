@@ -1,0 +1,155 @@
+{
+  "quick_start_guide_added": true, 
+  "book_details_splitter_horizontal_state": [
+    true, 
+    200
+  ], 
+  "book_list_pin_splitter_state": {
+    "__class__": "bytearray", 
+    "__value__": "AAAA/wAAAAEAAAACAAABAAAAAEYA/////wEAAAABAA=="
+  }, 
+  "book_details_splitter_vertical_state": [
+    true, 
+    146
+  ], 
+  "tag browser search box visible": false, 
+  "default_author_link": null, 
+  "cover_grid_texture": null, 
+  "preferences dialog geometry": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywACAAAAAAAEAAAAHwAAAx8AAAJeAAAABwAAADwAAAMcAAACWwAAAAAAAAAAAyA="
+  }, 
+  "bd_show_cover": false, 
+  "tag_browser_splitter_horizontal_state": [
+    true, 
+    200
+  ], 
+  "toolbar_icon_size": "small", 
+  "quickview_dialog_books_table_widths": [
+    182, 
+    182, 
+    182
+  ], 
+  "show_emblems": false, 
+  "library_usage_stats": {
+    "/home/zubmic/Calibre Library": 5
+  }, 
+  "quickview visible": false, 
+  "grid view visible": false, 
+  "cover_grid_color": [
+    80, 
+    80, 
+    80
+  ], 
+  "custom_colors_for_color_dialog": [
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ]
+  ], 
+  "cover_browser_splitter_horizontal_state": [
+    false, 
+    550
+  ], 
+  "search bar visible": true, 
+  "quickview_dialog_geometry": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywACAAAAAAADAAAAWgAAAwgAAAHPAAAABgAAAHcAAAMFAAABzAAAAAAAAAAAAyA="
+  }, 
+  "cover_browser_splitter_vertical_state": [
+    false, 
+    300
+  ]
+}
