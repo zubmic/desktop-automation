@@ -4,23 +4,20 @@
     - name: Configure XDG
       copy:
         src: ./files/.xfce/xdg
-        dest: /home/zubmic/.xfce/
+        dest: /home/zubmic/.config
         owner: zubmic
-        mode: 751
 
     - name: Configure XFCE
       copy:
         src: ./files/.xfce/xfce4
-        dest: /home/zubmic/.xfce/
+        dest: /home/zubmic/.config/
         owner: zubmic
-        mode: 751
 
     - name: Configure Thunar
       copy:
         src: ./files/.xfce/Thunar
-        dest: /home/zubmic/.xfce/
+        dest: /home/zubmic/.config/
         owner: zubmic
-        mode: 751
 
     - name:  Installing Thunderbird
       apt:
