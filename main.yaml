@@ -4,7 +4,7 @@
     - name: Configure XFCE
       copy:
         src: ./files/.xfce
-        dest: /home/zubmic/.xfce
+        dest: /home/zubmic
         owner: zubmic
         mode: 751
 
