@@ -44,6 +44,71 @@
         name: pidgin
         state: latest
 
+    - name: Clone Telegram Plugin Repo
+      git:
+        repo: https://github.com/majn/telegram-purple
+        dest: /home/zubmic/telegram-purple
+        clone: yes
+
+    - name: Add Telegram Plugin to Pidgin
+      copy:
+        src: /home/zubmic/telegram-purple/bin/telegram-purple.so
+        dest: /home/zubmic/.purple/plugins
+
+    - name: Install libgcrypt20-dev
+      apt:
+         name: libgcrypt20-dev
+         state: latest
+
+    - name: Install libpurple-dev
+      apt:
+         name: libpurple-dev
+         state: latest
+
+    - name: Install libwebp-dev
+      apt:
+         name: libwebp-dev
+         state: latest
+
+    - name: Install gettext
+      apt:
+         name: gettext
+         state: latest
+
+    - name: Install build-essential
+      apt:
+         name: build-essential
+         state: latest
+
+    - name: Install libpng-dev
+      apt:
+         name: libpng-dev
+         state: latest
+
+    - name: Configure Telegram Plugin
+      shell: ./configure
+      args:
+        chdir: /home/zubmic/telegram-purple
+
+    - name: Compile Telegram Plugin
+      shell: make
+      args:
+        chdir: /home/zubmic/telegram-purple
+
+    - name: Install Telegram Plugin
+      shell: make install
+      args:
+        chdir: /home/zubmic/telegram-purple
+      become: yes
+
+    - name: Install Facebook Plugin for Pidgin Part-1
+      apt:
+        deb: http://download.opensuse.org/repositories/home:/jgeboski/Debian_10/amd64/purple-facebook_20190113-0.9.6-0250907-166_amd64.deb
+
+    - name: Install Facebook Plugin for Pidgin Part-2
+      apt:
+        deb: http://download.opensuse.org/repositories/home:/jgeboski/Debian_10/amd64/purple-facebook-dbgsym_20190113-0.9.6-0250907-166_amd64.deb
+
     - name: Installing Calibre
       apt:
         name: calibre
