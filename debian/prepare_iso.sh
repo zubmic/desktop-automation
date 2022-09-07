@@ -6,6 +6,7 @@ iso_name='debian-11.4.0-amd64-netinst.iso'
 iso_mount='/media/iso'
 copy_dir='/tmp/iso'
 copy_name='debian-preseed-netinst.iso'
+iwlwifi='http://ftp.es.debian.org/debian/pool/non-free/f/firmware-nonfree/firmware-iwlwifi_20210315-3_all.deb'
 
 # Download iso and verify the checksum
 mkdir -pv $iso_mount $copy_dir
@@ -26,9 +27,16 @@ if [ $? -eq 0 ]; then
     # Inject the preseed file into initrd
     chmod +w -R $copy_dir/install.amd/
     gunzip $copy_dir/install.amd/initrd.gz
-    echo preseed.cfg | cpio --quiet -H newc -o -A -F $copy_dir/install.amd/initrd
+    (
+        cd $(dirname $(realpath $(find . -type f -name preseed.cfg))) && 
+        echo "preseed.cfg" | 
+        cpio --quiet -H newc -o -A -F $copy_dir/install.amd/initrd
+    )
     gzip $copy_dir/install.amd/initrd
     chmod -w -R $copy_dir/install.amd/
+
+    # Add firmware package to the iso
+    wget -q --show-progress -nc $iwlwifi -P $copy_dir/firmware/dep11
 
     # Recalculate md5 checksums and update the list
     chmod +w $copy_dir/md5sum.txt
