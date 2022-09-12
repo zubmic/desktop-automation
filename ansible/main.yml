@@ -1,0 +1,13 @@
+---
+- name: Test
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: "Test output 1"
+      shell: "echo Test 1 && sleep 10s"
+
+    - name: "Test output 2"
+      shell: "echo Test 2 && sleep 10s"
+
+    - name: "Test output 1"
+      shell: "echo Test 2 && sleep 10s"
