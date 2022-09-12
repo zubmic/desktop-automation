@@ -2,7 +2,7 @@
 # Prepare iso with preseed configuration
 
 url='https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/'
-iso_name='debian-11.4.0-amd64-netinst.iso'
+iso_name='debian-11.5.0-amd64-netinst.iso'
 iso_mount='/media/iso'
 copy_dir='/tmp/iso'
 copy_name='debian-preseed-netinst.iso'
@@ -37,6 +37,9 @@ if [ $? -eq 0 ]; then
 
     # Add firmware package to the iso
     wget -q --show-progress -nc $iwlwifi -P $copy_dir/firmware/dep11
+
+    # Add script used in preseed late_command
+    cp "$(dirname $0)/late_command.sh" $copy_dir
 
     # Recalculate md5 checksums and update the list
     chmod +w $copy_dir/md5sum.txt
