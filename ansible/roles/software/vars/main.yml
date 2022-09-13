@@ -1,0 +1,29 @@
+common_pkgs:
+  - dmz-cursor-theme
+  - gimp
+  - gnome-dust-icon-theme
+  - keepassxc
+  - mc
+  - terminator
+  - thunderbird
+  - transmission
+  - vim
+  - vlc
+
+unnecessary_pkgs:
+  - cheese
+  - evolution
+  - gnome-clocks
+  - gnome-contacts
+  - gnome-documents
+  - gnome-games
+  - gnome-maps
+  - gnome-music
+  - gnome-sound-recorder
+  - gnome-terminal
+  - gnome-todo
+  - gnome-weather
+  - malcontent
+  - rhythmbox
+  - shotwell
+  - totem
