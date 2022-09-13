@@ -23,4 +23,5 @@
       key: "/org/gnome/desktop/interface/icon-theme"
       state: present
       value: "'gnome-dust'"
-  become: "{ desktop_user }"
+  become: yes
+  become_user: "{ desktop_user }"
