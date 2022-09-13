@@ -23,4 +23,4 @@
       key: "/org/gnome/desktop/interface/icon-theme"
       state: present
       value: "'gnome-dust'"
-  become: ansible_env['USER']
+  become: "{ desktop_user }"
