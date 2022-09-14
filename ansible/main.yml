@@ -1,6 +1,6 @@
 ---
 - name: Post install configuration
-  hosts: local-system
+  hosts: local_system
   become: yes
   roles:
     - appearance
