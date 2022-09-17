@@ -16,7 +16,7 @@ if [[ $vm_name == *debian* || $iso_path == *debian* ]]; then
         --accelerate \
         --check-cpu \
         --connect=qemu:///system \
-        --disk /tmp/$vm_name.qcow2,size=20,format=qcow2 \
+        --disk /tmp/$vm_name.qcow2,size=40,format=qcow2 \
         --hvm \
         --location=$iso_path \
         --name $vm_name \

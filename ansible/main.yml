@@ -1,7 +1,0 @@
----
-- name: Post install configuration
-  hosts: local_system
-  become: yes
-  roles:
-    - appearance
-    - software

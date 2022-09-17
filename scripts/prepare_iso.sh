@@ -39,7 +39,7 @@ if [ $? -eq 0 ]; then
     wget -q --show-progress -nc $iwlwifi -P $copy_dir/firmware/dep11
 
     # Add script used in preseed late_command
-    cp "$(dirname $0)/late_command.sh" $copy_dir
+    cp "$(dirname $0)/post_install.sh" $copy_dir
 
     # Recalculate md5 checksums and update the list
     chmod +w $copy_dir/md5sum.txt
