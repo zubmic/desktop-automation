@@ -28,7 +28,7 @@ if [ $? -eq 0 ]; then
     chmod +w -R $copy_dir/install.amd/
     gunzip $copy_dir/install.amd/initrd.gz
     (
-        cd $(dirname $(realpath $(find . -type f -name preseed.cfg))) && 
+        cd $(find .. -name configs) && 
         echo "preseed.cfg" | 
         cpio --quiet -H newc -o -A -F $copy_dir/install.amd/initrd
     )
@@ -38,8 +38,9 @@ if [ $? -eq 0 ]; then
     # Add firmware package to the iso
     wget -q --show-progress -nc $iwlwifi -P $copy_dir/firmware/dep11
 
-    # Add script used in preseed late_command
-    cp "$(dirname $0)/post_install.sh" $copy_dir
+    # Add scripts used in preseed late_command
+    mkdir $copy_dir/post_install
+    cp -R "$(dirname $0)/.." $copy_dir/post_install
 
     # Recalculate md5 checksums and update the list
     chmod +w $copy_dir/md5sum.txt
