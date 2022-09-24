@@ -1,11 +1,13 @@
 [global_config]
+  handle_size = 1
   title_hide_sizetext = True
-  title_transmit_fg_color = "#0f1c21"
-  title_transmit_bg_color = "#04c975"
+  title_transmit_fg_color = "#ebeeea"
+  title_transmit_bg_color = "#2b606b"
   title_receive_fg_color = "#0f1c21"
   title_receive_bg_color = "#80b6ad"
   title_inactive_fg_color = "#80b6ad"
   title_inactive_bg_color = "#0f1c21"
+  inactive_color_offset = 0.50
   enabled_plugins = CustomCommandsMenu, LaunchpadBugURLHandler, LaunchpadCodeURLHandler, APTURLHandler, TerminatorThemes
   suppress_multiple_term_dialog = True
   always_split_with_profile = True
@@ -15,32 +17,8 @@
     icon_bell = False
     background_color = "#0f1c21"
     cursor_color = "#00485a"
-    foreground_color = "#80b6ad"
+    foreground_color = "#94b2b5"
     scrollbar_position = hidden
     scrollback_infinite = True
-    palette = "#0f1c21:#046655:#04c975:#b5bd68:#308891:#94a5bc:#8abeb7:#80b6ad:#0f1c21:#046655:#04c975:#b5bd68:#308891:#94a5bc:#8abeb7:#80b6ad"
-  [[Aurora]]
-    background_color = "#0f1c21"
-    cursor_color = "#00485a"
-    foreground_color = "#80b6ad"
-    palette = "#0f1c21:#046655:#04c975:#b5bd68:#308891:#94a5bc:#8abeb7:#80b6ad:#0f1c21:#046655:#04c975:#b5bd68:#308891:#94a5bc:#8abeb7:#80b6ad"
-[layouts]
-  [[default]]
-    [[[child0]]]
-      type = Window
-      parent = ""
-      order = 0
-      position = 590:343
-      maximised = False
-      fullscreen = False
-      size = 734, 452
-      title = Terminator
-      last_active_term = dd32ca14-d7eb-46af-b2ff-1f377c86c957
-      last_active_window = True
-    [[[terminal1]]]
-      type = Terminal
-      parent = child0
-      order = 0
-      profile = Aci
-      uuid = dd32ca14-d7eb-46af-b2ff-1f377c86c957
+    palette = "#0f1c21:#046655:#3d8083:#b5bd68:#308891:#94a5bc:#8abeb7:#80b6ad:#0f1c21:#046655:#04c975:#b5bd68:#308891:#94a5bc:#8abeb7:#80b6ad"
 [plugins]
