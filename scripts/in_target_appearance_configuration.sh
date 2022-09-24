@@ -23,11 +23,15 @@ cp $configs_dir/gnome-shell-theme.gresource.xml $work_dir/theme
 (
     cd $work_dir/theme
 
-    # Set Debian theme
+    # Set desktop and gdm wallpapers as well as GRUB splash screen
     if [ $distro == 'debian' ]; then
         su -l $username -c "dbus-launch dconf write /org/gnome/desktop/background/picture-uri \"'file:///usr/share/desktop-base/lines-theme/wallpaper/gnome-background.xml'\""
+
         cp /usr/share/desktop-base/lines-theme/login/background.svg $work_dir/theme
         echo '#lockDialogGroup { background-image: url("background.svg"); }' >> gnome-shell.css
+
+        update-alternatives --set desktop-grub /usr/share/desktop-base/lines-theme/grub/grub-16x9.png
+        update-grub2
     fi
 
     # Create list list of theme files
