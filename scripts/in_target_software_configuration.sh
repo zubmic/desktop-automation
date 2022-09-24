@@ -1,11 +1,12 @@
 #!/bin/bash
 ### Configures desired state of software
 
-distro=$1
-
 # Packages to be installed
 declare -a common_packages=(
+    "clamav"
+    "conky"
     "dmz-cursor-theme"
+    "duplicity"
     "gimp"
     "gnome-dust-icon-theme"
     "keepassxc"
@@ -40,6 +41,7 @@ declare -a unwanted_packages=(
 
 # Debian specific packages
 declare -a debian_packages=(
+    "conky-all"
     "libglib2.0-dev"
 )
 
@@ -47,8 +49,10 @@ declare -a debian_packages=(
 if [ $distro == 'debian' ]; then
     apt update
     apt install -y ${common_packages[*]} ${debian_packages[*]}
-
-    apt remove -y ${unwanted_packages[*]}
-    apt purge -y ${unwanted_packages[*]}
-    apt autoremove --purge -y
+    apt autoremove --purge -y ${unwanted_packages[*]}
 fi
+
+# Configure Terminator terminal
+mkdir /home/$username/.config
+cp -r $configs_dir/terminator /home/$username/.config/
+chown -R $username:$username /home/$username/.config

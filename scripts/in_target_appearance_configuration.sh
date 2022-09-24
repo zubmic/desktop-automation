@@ -1,9 +1,6 @@
 #!/bin/bash
 ### Configures look and feel of the system
 
-distro=$1
-username=$2
-
 # Configure windowbar, cursor theme and icon themes
 su -l $username -c "dbus-launch dconf write /org/gnome/desktop/wm/preferences/button-layout \"':minimize,maximize,close'\""
 su -l $username -c "dbus-launch dconf write /org/gnome/desktop/interface/cursor-theme \"'DMZ-White'\""
@@ -21,7 +18,7 @@ for resource in $(gresource list $gnome_shell_theme); do
     gresource extract $gnome_shell_theme $resource > $work_dir/$resource_name
 done
 
-cp /tmp/post_install/configs/gnome-shell-theme.gresource.xml $work_dir/theme
+cp $configs_dir/gnome-shell-theme.gresource.xml $work_dir/theme
 
 (
     cd $work_dir/theme
@@ -48,6 +45,6 @@ cp /tmp/post_install/configs/gnome-shell-theme.gresource.xml $work_dir/theme
 chown -R $username:$username /home/$username/.themes
 
 # Remove the logo from login screen
-cp /tmp/post_install/configs/gdm /etc/dconf/profile/gdm
 mkdir /etc/dconf/db/gdm.d
-cp /tmp/post_install/configs/01-logo /etc/dconf/db/gdm.d/01-logo
+cp $configs_dir/gdm /etc/dconf/profile/gdm
+cp $configs_dir/01-logo /etc/dconf/db/gdm.d/01-logo
