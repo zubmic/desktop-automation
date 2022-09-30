@@ -49,6 +49,6 @@ cp $configs_dir/gnome-shell-theme.gresource.xml $work_dir/theme
 chown -R $username:$username /home/$username/.themes
 
 # Remove the logo from login screen
-mkdir /etc/dconf/db/gdm.d
+mkdir -p /etc/dconf/db/gdm.d
 cp $configs_dir/gdm /etc/dconf/profile/gdm
 cp $configs_dir/01-logo /etc/dconf/db/gdm.d/01-logo
