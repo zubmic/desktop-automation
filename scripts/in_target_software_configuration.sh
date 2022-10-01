@@ -5,10 +5,12 @@
 declare -a common_packages=(
     "clamav"
     "conky"
+    "curl"
     "dmz-cursor-theme"
     "duplicity"
     "gimp"
     "gnome-dust-icon-theme"
+    "jq"
     "keepassxc"
     "mc"
     "terminator"
@@ -50,6 +52,9 @@ if [ $distro == 'debian' ]; then
     apt update
     apt install -y ${common_packages[*]} ${debian_packages[*]}
     apt autoremove --purge -y ${unwanted_packages[*]}
+
+    wget -q "https://mullvad.net/download/app/deb/latest/" -O /tmp/mullvad.deb
+    dpkg -i /tmp/mullvad.deb
 fi
 
 # Copy configuration files for installed applications
