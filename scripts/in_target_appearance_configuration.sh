@@ -18,7 +18,7 @@ for resource in $(gresource list $gnome_shell_theme); do
     gresource extract $gnome_shell_theme $resource > $work_dir/$resource_name
 done
 
-cp $configs_dir/gnome-shell-theme.gresource.xml $work_dir/theme
+cp $configs_dir/gnome-theme/gnome-shell-theme.gresource.xml $work_dir/theme
 
 (
     cd $work_dir/theme
