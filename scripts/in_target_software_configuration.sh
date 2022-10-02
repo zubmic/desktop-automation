@@ -12,7 +12,9 @@ declare -a common_packages=(
     "gnome-dust-icon-theme"
     "jq"
     "keepassxc"
+    "mailutils"
     "mc"
+    "sendmail"
     "terminator"
     "thunderbird"
     "transmission"
@@ -60,6 +62,10 @@ fi
 # Copy configuration files for installed applications
 rsync -og --chown=$username:$username -r $configs_dir/.config/ /home/$username/.config/
 
+# Replace the anacron config file
+cp $configs_dir/anacron/anacrontab /etc/anacrontab
+
+### REFACTOR THIS SECTION TO CREATE DYNAMIC CONKY CONFIGURATION
 # Fill conky theme with number of available CPUs
 cpus=$(lscpu | grep "^CPU(s):" | awk '{ print $2 }')
 cpus_list=""
@@ -69,7 +75,7 @@ for core in $(eval echo "{0..$cpus}"); do
 done
 
 cpus_list+="\${voffset 8}"
-sed -i "s/#CPUS/$cpus_list/" /home/$username/.config/conky/themes/strip/strip-clear.conf
+sed -i "s/#CPUS/$cpus_list/" /home/$username/.config/conky/conky.conf
 
 # Install Roboto Nerd Font
 wget https://github.com/AguilarLagunasArturo/conky-themes/blob/main/fonts/Roboto%20Mono%20Nerd%20Font%20Complete.ttf?raw=true -P /usr/share/fonts

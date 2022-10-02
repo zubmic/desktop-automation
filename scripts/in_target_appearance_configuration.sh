@@ -50,5 +50,5 @@ chown -R $username:$username /home/$username/.themes
 
 # Remove the logo from login screen
 mkdir -p /etc/dconf/db/gdm.d
-cp $configs_dir/gdm /etc/dconf/profile/gdm
-cp $configs_dir/01-logo /etc/dconf/db/gdm.d/01-logo
+cp $configs_dir/gnome-theme/gdm /etc/dconf/profile/gdm
+cp $configs_dir/gnome-theme/01-logo /etc/dconf/db/gdm.d/01-logo
