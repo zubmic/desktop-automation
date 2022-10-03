@@ -10,4 +10,5 @@ export distro=$(grep -e ^ID= /etc/os-release | awk -F= '{ print $2 }')
 export username=$(id -un -- 1000)
 
 $(dirname $0)/in_target_software_configuration.sh
-$(dirname $0)/in_target_appearance_configuration.sh 
+$(dirname $0)/in_target_appearance_configuration.sh
+$(dirname $0)/in_target_configure_conky.sh
