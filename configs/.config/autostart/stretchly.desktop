@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=stretchly
+Exec=/usr/bin/stretchly
+StartupNotify=false
+Terminal=false
