@@ -14,6 +14,7 @@ declare -a common_packages=(
     "keepassxc"
     "mailutils"
     "mc"
+    "sassc"
     "sendmail"
     "terminator"
     "transmission"

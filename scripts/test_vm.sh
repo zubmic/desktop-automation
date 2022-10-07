@@ -25,8 +25,8 @@ case $2 in
             --name $vm_name \
             --network=default \
             --os-variant=generic \
-            --ram 4096 \
-            --vcpus=2 \
+            --ram 8192 \
+            --vcpus=4 \
             --wait -1
         ;;
     restore-copy)
