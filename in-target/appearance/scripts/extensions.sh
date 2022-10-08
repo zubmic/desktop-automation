@@ -34,3 +34,5 @@ done
 
 echo "Fix premissions:"
 chown -Rv $username:$username /home/$username/.local
+
+unset $dconf_settings
