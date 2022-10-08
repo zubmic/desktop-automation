@@ -4,7 +4,7 @@
 distro=$(grep -e ^ID= /etc/os-release | awk -F= '{ print $2 }')
 
 # Packages to be installed
-declare -a common_packages=(
+declare -a install_packages=(
     "clamav"
     "conky"
     "curl"
@@ -26,7 +26,7 @@ declare -a common_packages=(
 )
 
 # Packages to be removed
-declare -a unwanted_packages=(
+declare -a remove_packages=(
     "cheese"
     "gnome-clocks"
     "gnome-contacts"
