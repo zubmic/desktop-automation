@@ -49,3 +49,9 @@ declare -a debian_packages=(
     "conky-all"
     "libglib2.0-dev"
 )
+
+# Dpkg packages
+declare -a dpkg_packages=(
+    "https://github.com/hovancik/stretchly/releases/download/v1.12.0/Stretchly_1.12.0_amd64.deb"
+    "https://github.com/mullvad/mullvadvpn-app/releases/download/2022.4/MullvadVPN-2022.4_amd64.deb"
+)
