@@ -13,5 +13,5 @@ git clone https://gitlab.gnome.org/GNOME/gtk.git /tmp/gtk
 echo "Installing theme for GTK $gtk_version:"
 mkdir -pv $gtk_theme_path
 rsync -rv --chown=$username:$username /tmp/gtk/gtk/theme/Adwaita/ $gtk_theme_path
-sed -i "s/#3584e4/$base_color/" $gtk_theme_path/_colors.scss
+sed -i "s/#3584e4/${theme_colors[base_color]}/" $gtk_theme_path/_colors.scss
 (cd $gtk_theme_path && sassc -M -t compact gtk-contained.scss gtk.css)

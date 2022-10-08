@@ -21,6 +21,7 @@ declare -a scripts=(
     "conky.sh"
     "extensions.sh"
     "gtk-theme.sh"
+    "gnome-shell.sh"
 )
 
 for script in  ${scripts[*]}; do
