@@ -48,3 +48,8 @@ cp -v $(dirname $0)/../files/gnome-shell-template.css $gnome_shell_custom_theme/
 echo "Cleaning up"
 rsync -rv --remove-source-files $gnome_shell_custom_theme/theme/ $gnome_shell_custom_theme/
 rm -rv $gnome_shell_custom_theme/theme
+
+echo "Removing the logo from login screen"
+mkdir -pv /etc/dconf/db/gdm.d
+cp -v $(dirname $0)/../files/gdm /etc/dconf/profile/gdm
+cp -v $(dirname $0)/../files/01-logo /etc/dconf/db/gdm.d/01-logo
