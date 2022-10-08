@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Determine which distro is being used
-distro=$(grep -e ^ID= /etc/os-release | awk -F= '{ print $2 }')
-
 # Packages to be installed
 declare -a install_packages=(
     "clamav"
@@ -55,3 +52,10 @@ declare -a dpkg_packages=(
     "https://github.com/hovancik/stretchly/releases/download/v1.12.0/Stretchly_1.12.0_amd64.deb"
     "https://github.com/mullvad/mullvadvpn-app/releases/download/2022.4/MullvadVPN-2022.4_amd64.deb"
 )
+
+# Conky configuration
+conky_left_config="/home/$username/.config/conky/conky-left.conf"
+conky_left_autostart="/home/$username/.config/autostart/conky-left.desktop"
+conky_right_config="/home/$username/.config/conky/conky-right.conf"
+conky_right_autostart="/home/$username/.config/autostart/conly-right.desktop"
+conky_net_interface_name=$(ip -o -4 route show to default | awk '{ print $5 }')
