@@ -16,7 +16,8 @@ gnome_shell_default_theme=/usr/share/gnome-shell/gnome-shell-theme.gresource
 if [ $distro == 'debian' ]; then
     gtk_theme_name="Adwaita-Ming"
     gtk_theme_path="/home/$username/.themes/$gtk_theme_name/gtk-3.0"
-    gnome_shell_custom_theme="/home/$username/.themes/ming/gnome-shell"
+    gnome_shell_custom_theme_name="ming"
+    gnome_shell_custom_theme="/home/$username/.themes/$gnome_shell_custom_theme_name/gnome-shell"
 
     theme_colors[base_color]="#3d8083"
     theme_colors[base_color_b]="#3d8094"

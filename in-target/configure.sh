@@ -22,6 +22,7 @@ declare -a scripts=(
     "extensions.sh"
     "gtk-theme.sh"
     "gnome-shell.sh"
+    "dconf.sh"
 )
 
 for script in  ${scripts[*]}; do
