@@ -7,6 +7,8 @@ add_timestamp() {
     while IFS= read -r line; do
         printf '%s %s %s\n' "[$(date '+%Y-%m-%d %H:%M:%S')]" "[$script_name]:" "$line" | tee -a $log_file
     done
+
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')]"
 }
 
 export username=$(id -un -- 1000)
@@ -14,6 +16,14 @@ export distro=$(grep -e ^ID= /etc/os-release | awk -F= '{ print $2 }')
 
 logs_dir="$(dirname $0)/logs/configure.log"
 
-$(dirname $0)/packages/scripts/install.sh | add_timestamp "install.sh" "$logs_dir"
-$(dirname $0)/packages/scripts/conky.sh | add_timestamp "conky.sh" "$logs_dir"
-$(dirname $0)/appearance/scripts/extensions.sh | add_timestamp "extensions.sh" "$logs_dir"
+declare -a scripts=(
+    "install.sh"
+    "conky.sh"
+    "extensions.sh"
+    "gtk-theme.sh"
+)
+
+for script in  ${scripts[*]}; do
+    path=$(find . -name $script)
+    bash $path 2>&1 | add_timestamp $script $logs_dir 
+done
