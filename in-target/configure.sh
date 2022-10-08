@@ -12,7 +12,8 @@ add_timestamp() {
 export username=$(id -un -- 1000)
 export distro=$(grep -e ^ID= /etc/os-release | awk -F= '{ print $2 }')
 
-logs_dir="$(dirname $0)/logs/"
+logs_dir="$(dirname $0)/logs/configure.log"
 
-$(dirname $0)/packages/scripts/install.sh | add_timestamp "install.sh" "$logs_dir/install.log"
-$(dirname $0)/packages/scripts/conky.sh | add_timestamp "conky.sh" "$logs_dir/conky.log"
+$(dirname $0)/packages/scripts/install.sh | add_timestamp "install.sh" "$logs_dir"
+$(dirname $0)/packages/scripts/conky.sh | add_timestamp "conky.sh" "$logs_dir"
+$(dirname $0)/appearance/scripts/extensions.sh | add_timestamp "extensions.sh" "$logs_dir"
