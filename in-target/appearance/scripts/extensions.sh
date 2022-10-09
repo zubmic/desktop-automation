@@ -32,7 +32,4 @@ for key in ${!dconf_settings[@]}; do
     su -l $username -c "dbus-launch dconf write $key ${dconf_settings[$key]}"
 done
 
-echo "Fix premissions:"
-chown -Rv $username:$username /home/$username/.local
-
 unset $dconf_settings

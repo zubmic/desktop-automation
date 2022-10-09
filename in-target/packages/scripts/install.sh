@@ -35,4 +35,4 @@ case $distro in
 esac
 
 echo "**COPY CONFIGURATION**"
-rsync -rv --chown=$username:$username $(dirname $0)/../files/ /home/$username
+rsync -rv $(dirname $0)/../files/ /home/$username

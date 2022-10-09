@@ -14,7 +14,7 @@ add_timestamp() {
 export username=$(id -un -- 1000)
 export distro=$(grep -e ^ID= /etc/os-release | awk -F= '{ print $2 }')
 
-logs_dir="$(dirname $0)/logs/configure.log"
+logs_dir="/var/log/in-target-configure.log"
 
 declare -a scripts=(
     "install.sh"
@@ -29,3 +29,5 @@ for script in  ${scripts[*]}; do
     path=$(find . -name $script)
     bash $path 2>&1 | add_timestamp $script $logs_dir 
 done
+
+chown -R $username:$username /home/$username
