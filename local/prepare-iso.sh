@@ -1,15 +1,11 @@
 #!/bin/bash
 # Prepare iso with preseed configuration
 
-url='https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/'
-iso_name='debian-11.5.0-amd64-netinst.iso'
-iso_mount='/media/iso'
-copy_dir='/tmp/iso'
-copy_name='debian-preseed-netinst.iso'
-iwlwifi='http://ftp.es.debian.org/debian/pool/non-free/f/firmware-nonfree/firmware-iwlwifi_20210315-3_all.deb'
+export distro=$1
+source $(dirname $0)/config.sh
 
 # Download iso and verify the checksum
-mkdir -pv $iso_mount $copy_dir
+mkdir -p $iso_mount $copy_dir
 wget -q --show-progress -nc "$url/$iso_name" "$url/SHA256SUMS" -P /tmp
 (cd /tmp && sha256sum -c --ignore-missing SHA256SUMS)
 
@@ -28,19 +24,21 @@ if [ $? -eq 0 ]; then
     chmod +w -R $copy_dir/install.amd/
     gunzip $copy_dir/install.amd/initrd.gz
     (
-        cd $(find .. -name configs) && 
-        echo "preseed.cfg" | 
+        cd $(dirname $0)/files && 
+        echo $config_name | 
         cpio --quiet -H newc -o -A -F $copy_dir/install.amd/initrd
     )
     gzip $copy_dir/install.amd/initrd
     chmod -w -R $copy_dir/install.amd/
 
     # Add firmware package to the iso
-    wget -q --show-progress -nc $iwlwifi -P $copy_dir/firmware/dep11
+    if [ $distro == 'debian' ]; then
+        wget -q --show-progress -nc $iwlwifi -P $copy_dir/firmware/dep11
+    fi
 
     # Add scripts used in preseed late_command
-    mkdir $copy_dir/post_install
-    cp -R "$(dirname $0)/.." $copy_dir/post_install
+    mkdir -p $copy_dir/in-target
+    cp -R "$(dirname $0)/../in-target" $copy_dir/
 
     # Recalculate md5 checksums and update the list
     chmod +w $copy_dir/md5sum.txt
