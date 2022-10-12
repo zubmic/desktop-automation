@@ -2,6 +2,7 @@
 
 # Packages to be installed
 declare -a install_packages=(
+    "bleachbit"
     "clamav"
     "conky"
     "curl"
