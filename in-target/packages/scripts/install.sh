@@ -33,6 +33,3 @@ case $distro in
         echo ""
     ;;
 esac
-
-echo "**COPY CONFIGURATION**"
-rsync -rv $(dirname $0)/../files/ /home/$username

@@ -8,6 +8,7 @@ declare -a extensions=(
 
 # Array for dconf settings
 declare -A dconf_settings
+dconf_script_path="/etc/init.d/dconf-config.sh"
 
 # Custom GTK and GNOME shell themes settings
 declare -A theme_colors
@@ -31,4 +32,14 @@ if [ $distro == 'debian' ]; then
     theme_colors[base_color_85]="61, 128, 131, 0.85"
 
     gdm_background_img="background.svg"
+
+    dconf_settings[/org/gnome/desktop/background/picture-uri]="'\"file:///usr/share/desktop-base/lines-theme/wallpaper/gnome-background.xml\"'"
 fi
+
+dconf_settings[/org/gnome/desktop/sounds/event-sounds]=false
+dconf_settings[/org/gnome/desktop/wm/preferences/button-layout]="'\":minimize,maximize,close\"'"
+dconf_settings[/org/gnome/desktop/interface/cursor-theme]="'\"DMZ-White\"'"
+dconf_settings[/org/gnome/desktop/interface/icon-theme]="'\"gnome\"'"
+dconf_settings[/org/gnome/desktop/interface/gtk-theme]="'\"$gtk_theme_name\"'"
+dconf_settings[/org/gnome/shell/extensions/user-theme/name]="'\"$gnome_shell_custom_theme_name\"'"
+dconf_settings[/org/gnome/shell/extensions/mullvadindicator/show-icon]=false

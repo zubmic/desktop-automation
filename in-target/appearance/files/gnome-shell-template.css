@@ -2978,8 +2978,7 @@ StScrollBar StButton#hhandle:active {
 }
 
 #lockDialogGroup {
-  background-color: BASE_COLOR;
-  background-image: url(GDM_BACKGROUND_IMG);
+  background: BASE_COLOR url(GDM_BACKGROUND_IMG);
 }
 
 #unlockDialogNotifications StButton#vhandle,

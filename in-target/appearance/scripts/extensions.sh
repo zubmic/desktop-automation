@@ -23,13 +23,5 @@ done
 
 enabled_extensions+="'user-theme@gnome-shell-extensions.gcampax.github.com']"
 
-echo "Enable and configure extensions: $enabled_extensions"
-
-dconf_settings[/org/gnome/shell/enabled-extensions]="\"$enabled_extensions\""
-dconf_settings[/org/gnome/shell/extensions/mullvadindicator/show-icon]=false
-
-for key in ${!dconf_settings[@]}; do
-    su -l $username -c "dbus-launch dconf write $key ${dconf_settings[$key]}"
-done
-
-unset $dconf_settings
+echo "Enable extensions: $enabled_extensions"
+su -l $username -c "dbus-launch dconf write /org/gnome/shell/enabled-extensions \"$enabled_extensions\""

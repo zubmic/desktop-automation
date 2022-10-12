@@ -21,7 +21,6 @@ cp -v $(dirname $0)/../files/gnome-shell-template.css $gnome_shell_custom_theme/
     echo "Setting wallpapers and splash screen"
     if [ $distro == 'debian' ]; then
         cp -v /usr/share/desktop-base/lines-theme/login/background.svg $gnome_shell_custom_theme/theme
-        su -l $username -c "dbus-launch dconf write /org/gnome/desktop/background/picture-uri \"'file:///usr/share/desktop-base/lines-theme/wallpaper/gnome-background.xml'\""
 
         for color in ${!theme_colors[@]}; do
             if [ $color == 'base_color' ]; then
@@ -30,6 +29,8 @@ cp -v $(dirname $0)/../files/gnome-shell-template.css $gnome_shell_custom_theme/
                 sed -i "s/${color^^}/${theme_colors[$color]}/g" ./gnome-shell.css
             fi
         done
+
+        sed -i "s/GDM_BACKGROUND_IMG/$gdm_background_img/" ./gnome-shell.css
 
         update-alternatives --set desktop-grub /usr/share/desktop-base/lines-theme/grub/grub-16x9.png
         update-grub2
@@ -53,3 +54,6 @@ echo "Removing the logo from login screen"
 mkdir -pv /etc/dconf/db/gdm.d
 cp -v $(dirname $0)/../files/gdm /etc/dconf/profile/gdm
 cp -v $(dirname $0)/../files/01-logo /etc/dconf/db/gdm.d/01-logo
+
+echo "Copying the custom theme to system directory"
+rsync -rv $gnome_shell_custom_theme/ /usr/share/gnome-shell/

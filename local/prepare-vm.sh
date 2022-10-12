@@ -23,5 +23,5 @@ virt-install \
     --network=default \
     --os-variant=generic \
     --ram 8192 \
-    --vcpus=4
-#    --wait -1
+    --vcpus=4 \
+    --wait -1
