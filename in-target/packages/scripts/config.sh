@@ -52,6 +52,7 @@ declare -a debian_packages=(
 declare -a dpkg_packages=(
     "https://github.com/hovancik/stretchly/releases/download/v1.12.0/Stretchly_1.12.0_amd64.deb"
     "https://github.com/mullvad/mullvadvpn-app/releases/download/2022.4/MullvadVPN-2022.4_amd64.deb"
+    "https://github.com/VSCodium/vscodium/releases/download/1.72.1.22284/codium_1.72.1.22284_amd64.deb"
 )
 
 # Conky configuration
