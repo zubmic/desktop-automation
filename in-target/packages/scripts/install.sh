@@ -26,8 +26,20 @@ case $distro in
             wget -nc --quiet $package_url -O /tmp/$package_name
             dpkg -u /tmp/$package_name 2>/dev/null
         done
+
+        echo "**INSTALL PACKAGES FROM EXTREPOS**"
+        sed -i 's/# - contrib/- contrib/' /etc/extrepo/config.yaml
+        sed -i 's/# - non-free/- non-free/' /etc/extrepo/config.yaml
+        for repository in ${extrepos[*]}; do
+            extrepo enable $repository
+        done
+        apt-get update -q
+        apt-get install -q -y ${extrepos[*]}
     ;;
 esac
 
 echo "**INSTALL MC SKIN**"
 cp -v $(dirname $0)/../files/mc/custom.ini /usr/share/mc/skins/
+
+echo "**COPY CONFIGURATION**"
+rsync -rv $(dirname $0)/../files/.config/ /home/$username/.config/

@@ -14,13 +14,14 @@ export distro=$(grep -e ^ID= /etc/os-release | awk -F= '{ print $2 }')
 
 logs_dir="/var/log/in-target-configure.log"
 
+# Change order to: gnome-shell, gtk-theme, extensions, dconf.sh, install.sh, conky.sh
 declare -a scripts=(
-    "install.sh"
-    "conky.sh"
-    "gtk-theme.sh"
-    "gnome-shell.sh"
-    "extensions.sh"
     "dconf.sh"
+    "install.sh"
+    "gnome-shell.sh"
+    "gtk-theme.sh"
+    "extensions.sh"
+    "conky.sh"
 )
 
 for script in  ${scripts[*]}; do
