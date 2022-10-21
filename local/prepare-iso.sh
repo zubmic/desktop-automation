@@ -31,16 +31,19 @@ if [ $? -eq 0 ]; then
     gzip $copy_dir/install.amd/initrd
     chmod -w -R $copy_dir/install.amd/
 
-    # Add firmware package to the iso
     if [ $distro == 'debian' ]; then
+        # Add firmware package to the iso
         wget -q --show-progress -nc $iwlwifi -P $copy_dir/firmware/dep11
+        
+        # Append boot argument so fdisk can be preloaded and used later in preseed
+        sed -i 's/--- quiet/modules=util-linux-udeb --- quiet/' $copy_dir/isolinux/txt.cfg
+
+        # Change splash screen shown on iso boot
+        cp "$(dirname $0)/files/splash.png" $copy_dir/isolinux/
     fi
 
     # Add scripts used in preseed
     cp -R "$(dirname $0)/../in-target" $copy_dir/
-
-    # Append boot argument so fdisk can be preloaded and used later in preseed
-    sed -i 's/--- quiet/modules=util-linux-udeb --- quiet/' $copy_dir/isolinux/txt.cfg
 
     # Recalculate md5 checksums and update the list
     chmod +w $copy_dir/md5sum.txt
