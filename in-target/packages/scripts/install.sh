@@ -16,7 +16,7 @@ case $distro in
 
         echo "**CONFIGURE UNATTENDED UPGRADES**"
         echo unattended-upgrades unattended-upgrades/enable_auto_updates boolean true | debconf-set-selections
-        dpkg-reconfigure -f noninteractive unattended-upgrades 2>/dev/null
+        dpkg-reconfigure -f noninteractive unattended-upgrades
         sed -i "s/\/\/Unattended-Upgrade::Mail \"\";/Unattended-Upgrade::Mail \"$username\";/" /etc/apt/apt.conf.d/50unattended-upgrades
 
         echo "**DPKG INSTALL**"
@@ -24,17 +24,8 @@ case $distro in
             package_name=$(basename $package_url)
             echo "Downloading: $package_name"
             wget -nc --quiet $package_url -O /tmp/$package_name
-            dpkg -u /tmp/$package_name 2>/dev/null
+            dpkg -i /tmp/$package_name
         done
-
-        echo "**INSTALL PACKAGES FROM EXTREPOS**"
-        sed -i 's/# - contrib/- contrib/' /etc/extrepo/config.yaml
-        sed -i 's/# - non-free/- non-free/' /etc/extrepo/config.yaml
-        for repository in ${extrepos[*]}; do
-            extrepo enable $repository
-        done
-        apt-get update -q
-        apt-get install -q -y ${extrepos[*]}
     ;;
 esac
 
