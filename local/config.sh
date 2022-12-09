@@ -5,6 +5,19 @@ iso_mount='/media/iso'
 disk_file='/var/lib/libvirt/images/'
 distro=$1
 
+# Source external functions
+source <(curl -s https://raw.githubusercontent.com/zubmic/bash-scripts/main/functions/escalate.sh)
+source <(curl -s https://raw.githubusercontent.com/zubmic/bash-scripts/main/functions/log.sh)
+
+supported_distros=('debian' 'fedora')
+
+# Check if passed distro is supported
+if [[ ! "${supported_distros[*]}" =~ $distro ]]; then
+    log -e "Unsupported distro: $distro"
+    log -e "Supported distros are: ${supported_distros[*]}"
+    exit 1
+fi
+
 if [ "$distro" == 'debian' ]; then
     checksum_name='SHA256SUMS'
     config_name='preseed.cfg'
