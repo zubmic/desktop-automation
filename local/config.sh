@@ -24,9 +24,9 @@ if [ "$distro" == 'debian' ]; then
     iso_url='https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-11.5.0-amd64-netinst.iso'
     iwlwifi='http://ftp.es.debian.org/debian/pool/non-free/f/firmware-nonfree/firmware-iwlwifi_20210315-3_all.deb'
 elif [ "$distro" == 'fedora' ]; then
-    checksum_name='Fedora-Workstation-36-1.5-x86_64-CHECKSUM'
+    checksum_name='Fedora-Server-36-1.5-x86_64-CHECKSUM'
     config_name='ks.cfg'
-    iso_url='https://eu.edge.kernel.org/fedora/releases/36/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-36-1.5.iso'
+    iso_url='https://eu.edge.kernel.org/fedora/releases/36/Server/x86_64/iso/Fedora-Server-netinst-x86_64-36-1.5.iso'
 fi
 
 iso_name=$(basename $iso_url)
